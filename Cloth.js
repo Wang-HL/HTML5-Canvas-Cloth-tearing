@@ -210,9 +210,9 @@ Cloth.prototype.update = function () {
     while (i--) this.points[i].update(.016);
 };
 
-Cloth.prototype.draw = function () {
+Cloth.prototype.draw = function () { //prototype原型
 
-    ctx.beginPath();
+    ctx.beginPath(); //beginPath() 方法开始一条路径，或重置当前的路径。
 
     var i = cloth.points.length;
     while (i--) cloth.points[i].draw();
