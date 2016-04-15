@@ -23,8 +23,8 @@ window.requestAnimFrame =
 var canvas,
     ctx,
     cloth,
-    boundsx,
-    boundsy,
+    boundsx, //画布的总宽度
+    boundsy, //画布的总长度
     mouse = {
         down: false,
         button: 1,
@@ -222,7 +222,7 @@ Cloth.prototype.draw = function () {
 
 function update() {
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height); //清除某个矩形区域的内容。
 
     cloth.update();
     cloth.draw();
@@ -257,14 +257,14 @@ function start() {
         e.preventDefault();
     };
 
-    canvas.oncontextmenu = function (e) {
+    canvas.oncontextmenu = function (e) { //取消鼠标右键功能
         e.preventDefault();
     };
 
     boundsx = canvas.width - 1;
     boundsy = canvas.height - 1;
 
-    ctx.strokeStyle = '#888';
+    ctx.strokeStyle = '#888'; //设置笔触颜色，也就是边框的颜色
     cloth = new Cloth();
     update();
 }
